@@ -2,6 +2,8 @@
 
 A modern, animated and interactive 3D portfolio with Japanese localization, featuring smooth GSAP animations, custom cursor effects, and responsive design.
 
+![alt text](public/images/thumbnail.png)
+
 ## Features
 
 - 🌟 **Hero Section** with 3D Spline animations

@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
 import { TbFileCv } from "react-icons/tb";
+import emailjs from '@emailjs/browser';
 
 
 const Header = () => {
@@ -12,6 +13,50 @@ const Header = () => {
     const [ contactFormOpen, setContactFormOpen] = useState(false);
     const openContactForm = () => setContactFormOpen(true);
     const closeContactForm = () => setContactFormOpen(false);
+
+    // Contact form state
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+    const [isLoading, setIsLoading] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState('');
+
+    // Handle input changes
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    // Handle form submit
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        setSubmitStatus('');
+        try {
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                },
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            );
+            setSubmitStatus('success');
+            setFormData({ name: '', email: '', message: '' });
+            setTimeout(() => {
+                setSubmitStatus('');
+                closeContactForm();
+            }, 2000);
+        } catch (error) {
+            setSubmitStatus('error');
+        } finally {
+            setIsLoading(false);
+        }
+    };
     // Navigation scroll handler
     const scrollToSection = (sectionId) => {
         // Try to scroll after menu closes (for mobile)
@@ -238,17 +283,20 @@ const Header = () => {
                         </div>  
 
                         {/* Input forms */}
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
                                     名前
                                 </label>
                                 <input
-                                type="text"
-                                id="name"
-                                placeholder="あなたの名前"
-                                className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700"
-
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    placeholder="あなたの名前"
+                                    className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700 text-white"
+                                    required
                                 />
                             </div>
 
@@ -257,33 +305,52 @@ const Header = () => {
                                     Email
                                 </label>
                                 <input
-                                type="email"
-                                id="email"
-                                placeholder="あなたのメール"
-                                className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700"
-
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    placeholder="あなたのメール"
+                                    className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700 text-white"
+                                    required
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="messagee" className="block text-sm font-medium text-gray-300 mb-1">
+                                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
                                     メッセージ
                                 </label>
                                 <textarea
-                                rows="4"
-                                id="message"
-                                placeholder="あなたのメッセージ"
-                                className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700"
-
+                                    rows="4"
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleInputChange}
+                                    placeholder="あなたのメッセージ"
+                                    className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700 text-white"
+                                    required
                                 />
                             </div>
 
+                            {/* Status messages */}
+                            {submitStatus === 'success' && (
+                                <div className="mb-4 p-2 bg-green-500/20 border border-green-500 rounded text-green-300 text-sm">
+                                    メッセージが正常に送信されました！
+                                </div>
+                            )}
+                            {submitStatus === 'error' && (
+                                <div className="mb-4 p-2 bg-red-500/20 border border-red-500 rounded text-red-300 text-sm">
+                                    エラーが発生しました。もう一度お試しください。
+                                </div>
+                            )}
+
                             <motion.button 
-                            type="submit"
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.97 }}
-                            className="w-full px-4 py-2 bg-gradient-to-r from-violet-600 to-violet-400 hover:from-violet-700 hover:to-purple-700 transition-all duration-300 rounded-lg shadow-md hover:shadow-lg hover:shadow-violet-600/50">
-                                メッセージを送信
+                                type="submit"
+                                disabled={isLoading}
+                                whileHover={{ scale: isLoading ? 1 : 1.03 }}
+                                whileTap={{ scale: isLoading ? 1 : 0.97 }}
+                                className="w-full px-4 py-2 bg-gradient-to-r from-violet-600 to-violet-400 hover:from-violet-700 hover:to-purple-700 transition-all duration-300 rounded-lg shadow-md hover:shadow-lg hover:shadow-violet-600/50 disabled:opacity-50 disabled:cursor-not-allowed">
+                                {isLoading ? '送信中...' : 'メッセージを送信'}
                             </motion.button>
                         </form>
 
