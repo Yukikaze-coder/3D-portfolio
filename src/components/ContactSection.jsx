@@ -217,7 +217,7 @@ const ContactSection = () => {
                     damping: 30,
                     duration: 0.8
                 }}
-                    className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md p-6"
+                    className="bg-gray-800 rounded-xl shadow-xl w-full max-w-md p-6"
                     >
                       <div className="flex justify-between items-center mb-4">
                         <h1 className="text-2xl font-bold text-gray-300">

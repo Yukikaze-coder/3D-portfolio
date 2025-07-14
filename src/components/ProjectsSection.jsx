@@ -131,7 +131,10 @@ const ProjectSection = () => {
       scrollTrigger: {
         trigger: triggerRef.current,
         start: "top top",
-        end: () => `+=${horizontalRef.current.offsetWidth * 1.5}`,
+        end: () => {
+          // Use a much larger multiplier for mobile to ensure last project scrolls far enough
+          return `+=${horizontalRef.current.offsetWidth * 2.8}`;
+        },
         pin: true,
         scrub: 2,
         snap: {
@@ -191,7 +194,7 @@ const ProjectSection = () => {
 
       {/* Horizontal scroll section */}
       <div ref={triggerRef} className="overflow-hidden opacity-0">
-        <div ref={horizontalRef} className="horizontal-section flex md:w-[400%] w-[420%]">
+        <div ref={horizontalRef} className="horizontal-section flex md:w-[400%] w-[500%]">
 
           {projectImages.map((project) => (
             <div loading key={project.id} className="panel relative flex items-center justify-center">

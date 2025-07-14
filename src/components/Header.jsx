@@ -257,7 +257,7 @@ const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed inset-0 min-h-screen bg-black/50 backdrop-blur-sm z-50 flex justify-center items-center"
+            className="fixed inset-0 min-h-screen bg-black/50 backdrop-blur-sm z-50 flex justify-center items-center p-4"
             >
 
                 <motion.div
@@ -270,7 +270,7 @@ const Header = () => {
                     damping: 30,
                     duration: 0.8
                 }}
-                    className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md p-6"
+                    className="bg-gray-800 rounded-xl shadow-xl w-full max-w-md p-6"
                     >
 
                       <div className="flex justify-between items-center mb-4">
