@@ -35,12 +35,12 @@ const ProjectSection = () => {
     {
       id: 5,
       title: "Game-Finder",
-      imageSrc: "/images/project-4.png"
+      imageSrc: "/images/project-5.png"
     },
     {
       id: 6,
       title: "Book-Finder",
-      imageSrc: "/images/project-5.png"
+      imageSrc: "/images/project-6.png"
     }
   
   ]
