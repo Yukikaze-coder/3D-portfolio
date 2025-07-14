@@ -81,7 +81,7 @@ const AboutSection = () => {
     };
 
   return (
-    <section ref={sectionRef} className="h-screen relative overflow-hidden bg-gradient-to-b from-black to-[#9a74cf50]">
+    <section id="about" ref={sectionRef} className="h-screen relative overflow-hidden bg-gradient-to-b from-black to-[#9a74cf50]">
         <div className="absolute inset-0 overflow-hidden">
             {/* Stars */}
             {[...Array(10)].map((_, index) => (

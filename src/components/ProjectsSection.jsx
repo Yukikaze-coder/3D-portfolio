@@ -14,7 +14,7 @@ const ProjectSection = () => {
   const projectImages = [
     {
       id: 1,
-      title: "3D Gaming Website",
+      title: "Meta Game Website",
       imageSrc: "/images/project-1.png"
     },
     {
@@ -24,19 +24,25 @@ const ProjectSection = () => {
     },
     {
       id: 3,
-      title: "3D Gaming Website",
+      title: "English Portfolio",
       imageSrc: "/images/project-3.png"
     },
     {
       id: 4,
-      title: "3D Gaming Website",
+      title: "Japan Events",
       imageSrc: "/images/project-4.png"
     },
     {
       id: 5,
-      title: "3D Gaming Website",
+      title: "Game-Finder",
       imageSrc: "/images/project-4.png"
+    },
+    {
+      id: 6,
+      title: "Book-Finder",
+      imageSrc: "/images/project-5.png"
     }
+  
   ]
 
   useEffect(() => {
@@ -168,7 +174,7 @@ const ProjectSection = () => {
   return (
     <section
         ref={sectionRef}
-        id="horizontal-section"
+        id="projects"
         className="relative py-20 bg-[#f6f6f6] overflow-hidden"
     >
       {/* Section title */}

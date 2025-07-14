@@ -12,10 +12,33 @@ const Header = () => {
     const [ contactFormOpen, setContactFormOpen] = useState(false);
     const openContactForm = () => setContactFormOpen(true);
     const closeContactForm = () => setContactFormOpen(false);
+    // Navigation scroll handler
+    const scrollToSection = (sectionId) => {
+        // Try to scroll after menu closes (for mobile)
+        setTimeout(() => {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                // fallback: use anchor navigation
+                window.location.hash = `#${sectionId}`;
+            }
+        }, 100);
+    };
+    // Navigation items with their corresponding section IDs
+    const navItems = [
+        { name: "ホーム", id: "home" },
+        { name: "アバウト", id: "about" },
+        { name: "プロジェクト", id: "projects" },
+        { name: "お問い合わせ", id: "contact" }
+    ];
     
     
   return (
-    <header className="absolute w-full z-50 transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-black/80 backdrop-blur-sm">
 
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
 
@@ -30,7 +53,8 @@ const Header = () => {
             delay: 0.3, 
             duration: 1.2 
         }}
-        className="flex items-center">
+        className="flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-300"
+        onClick={() => scrollToSection('home')}>
 
           <div className="h-10 w-10 rounded-xl bg-gradient-to-r from-gray-500 to-gray-100 flex items-center justify-center text-purple-600 font-bold text-xl mr-3">
             ML
@@ -44,10 +68,9 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="lg:flex hidden space-x-8">
-            {["ホーム", "アバウト", "プロジェクト", "経験", "お問い合わせ"].map((item, index) => (
-
-                <motion.a
-                key={item}
+            {navItems.map((item, index) => (
+                <motion.button
+                key={item.name}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
@@ -55,12 +78,11 @@ const Header = () => {
                     stiffness: 100, 
                     damping: 20, delay: 0.7 + index * 0.2 
                 }}
-                className="relative text-gray-800 dark:text-gray-200 hover:violet-600 dark:hover:text-violet-400 font-medium transition-colors duration-300 group"
-                href="#">
-                    {item}
+                className="relative text-gray-800 dark:text-gray-200 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors duration-300 group"
+                onClick={() => scrollToSection(item.id)}>
+                    {item.name}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-violet-600 group-hover:w-full transition-all duration-300"></span>
-                </motion.a>
-                
+                </motion.button>
             ))}
         </nav>
 
@@ -73,7 +95,8 @@ const Header = () => {
             transition={{ 
                 delay: 1.3, duration: 0.8
             }}
-            className="text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300" href="#">
+            className="text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300"
+            href="https://www.linkedin.com/in/luigi-morandini-22307b34b/?locale=ja_JP" target="_blank" rel="noopener noreferrer">
                 <FiLinkedin className="w-5 h-5"/>
             </motion.a>
 
@@ -83,7 +106,8 @@ const Header = () => {
             transition={{ 
                 delay: 1.3, duration: 0.8
             }}
-            className="text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300" href="#">
+            className="text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300"
+            href="https://github.com/Yukikaze-coder" target="_blank" rel="noopener noreferrer">
                 <FiGithub className="w-5 h-5"/>
             </motion.a>
 
@@ -93,7 +117,8 @@ const Header = () => {
             transition={{ 
                 delay: 1.3, duration: 0.8
             }}
-            className="text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300" href="#">
+            className="text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300"
+            href="https://flowcv.com/resume/8q0nsf6hqf40" target="_blank" rel="noopener noreferrer">
                 <TbFileCv className="w-5 h-5"/>
             </motion.a>
 
@@ -101,7 +126,7 @@ const Header = () => {
 
         <div>
 
-        {/* Hire Me Button */}
+        {/* Contact Button */}
         <motion.button
         onClick={openContactForm}
         initial={{ opacity: 0, scale: 0.8 }}
@@ -141,29 +166,30 @@ const Header = () => {
     transition={{ duration: 0.5 }}
         className="md:hidden overflow-hidden bg-white dark:bg-gray-900 shadow-lg px-4 py-5 space-y-5">
             <nav className="flex flex-col space-y-3">
-                 {["ホーム", "アバウト", "プロジェクト", "経験", "お問い合わせ"].map((item) => 
-                 ( 
-                    <a onClick={toggleMenu} className="text-gray-300 font-medium py-2" key={item} href="#">
-                        {item}
-                        </a>
-
+                 {navItems.map((item) => (
+                    <button 
+                        key={item.name}
+                        onClick={() => {
+                            scrollToSection(item.id);
+                            toggleMenu();
+                        }} 
+                        className="text-gray-300 font-medium py-2 text-left">
+                        {item.name}
+                    </button>
                  ))}
             </nav>
 
             <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
                 <div className="flex space-x-5">
-
-                    <a href="#">
+                    <a href="https://www.linkedin.com/in/luigi-morandini-22307b34b/?locale=ja_JP" target="_blank" rel="noopener noreferrer">
                         <FiLinkedin className="h-5 w-5 text-gray-300"/>
-                        </a>
-
-                        <a href="#">
+                    </a>
+                    <a href="https://github.com/Yukikaze-coder" target="_blank" rel="noopener noreferrer">
                         <FiGithub className="h-5 w-5 text-gray-300"/>
-                        </a>
-
-                        <a href="#">
+                    </a>
+                    <a href="https://flowcv.com/resume/8q0nsf6hqf40" target="_blank" rel="noopener noreferrer">
                         <TbFileCv className="h-5 w-5 text-gray-300"/>
-                        </a>
+                    </a>
                 </div>
 
                 <button 
@@ -185,7 +211,7 @@ const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed inset-0 bg-black/50 background-blur-sm z-50 flex items-center justify-center p4"
+            className="fixed inset-0 min-h-screen bg-black/50 backdrop-blur-sm z-50 flex justify-center items-center"
             >
 
                 <motion.div
