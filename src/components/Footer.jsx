@@ -8,9 +8,20 @@ const Footer = () => {
         <div className="flex justify-between items-center">
 
             {/* Logo and description */}
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-200 bg-clip-text text-transparent">
-                モランディニ・ルイ－ジ
-            </h2>
+            <button
+                className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-200 bg-clip-text text-transparent focus:outline-none"
+                onClick={() => {
+                    const home = document.getElementById('home');
+                    if (home) {
+                        home.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        window.location.hash = '#home';
+                    }
+                }}
+                aria-label="Go to Home"
+            >
+                Morandini Luigi
+            </button>
 
             {/* Scroll links */}
             <div>
@@ -18,15 +29,15 @@ const Footer = () => {
                     Connect
                 </h3>
                 <div className="flex space-x-4">
-                    <a className="text-gray-700 hover:text-violet-400 transition-colors" href="https://github.com/Yukikaze-coder" target="_blank" rel="noopener noreferrer">
+                    <a className="text-gray-700 hover:text-violet-400 transition-colors" href="#">
                         <FiGithub className="w-5 h-5" />
                     </a>
 
-                    <a className="text-gray-700 hover:text-violet-400 transition-colors" href="https://www.linkedin.com/in/luigi-morandini-22307b34b/?locale=ja_JP" target="_blank" rel="noopener noreferrer">
+                    <a className="text-gray-700 hover:text-violet-400 transition-colors" href="#">
                         <FiLinkedin className="w-5 h-5" />
                     </a>
 
-                    <a className="text-gray-700 hover:text-violet-400 transition-colors" href="https://flowcv.com/resume/8q0nsf6hqf40" target="_blank" rel="noopener noreferrer">
+                    <a className="text-gray-700 hover:text-violet-400 transition-colors" href="#">
                         <TbFileCv className="w-5 h-5" />
                     </a>
 

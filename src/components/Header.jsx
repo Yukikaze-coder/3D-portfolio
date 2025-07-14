@@ -52,6 +52,7 @@ const Header = () => {
                 closeContactForm();
             }, 2000);
         } catch (error) {
+            console.error('EmailJS send error:', error);
             setSubmitStatus('error');
         } finally {
             setIsLoading(false);
@@ -105,7 +106,7 @@ const Header = () => {
             ML
             </div>
 
-        <span className="text-xl font-bold bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent">
+        <span className="font-bold bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent text-base sm:text-xl whitespace-nowrap">
             モランディニ・ルイ－ジ
         </span>
           

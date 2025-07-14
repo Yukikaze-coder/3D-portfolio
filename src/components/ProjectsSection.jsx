@@ -15,32 +15,34 @@ const ProjectSection = () => {
     {
       id: 1,
       title: "Meta Game Website",
-      imageSrc: "/images/project-1.png"
+      imageSrc: "/images/project-1.png",
+      url: "https://gaming-50q0.onrender.com/"
+
     },
     {
       id: 2,
       title: "3D Gaming Website",
-      imageSrc: "/images/project-2.png"
+      imageSrc: "/images/project-2.png",
+      url :"https://gaming-website-cqgx.onrender.com/"
+
     },
     {
       id: 3,
       title: "English Portfolio",
-      imageSrc: "/images/project-3.png"
+      imageSrc: "/images/project-3.png",
+      url: "https://morandini.online/"
     },
     {
       id: 4,
       title: "Japan Events",
-      imageSrc: "/images/project-4.png"
+      imageSrc: "/images/project-4.png",
+      url: "https://eventsjp.com/"
     },
     {
       id: 5,
       title: "Game-Finder",
-      imageSrc: "/images/project-5.png"
-    },
-    {
-      id: 6,
-      title: "Book-Finder",
-      imageSrc: "/images/project-6.png"
+      imageSrc: "/images/project-5.png",
+      url: "https://game-finder.online/"
     }
   
   ]
@@ -129,13 +131,13 @@ const ProjectSection = () => {
       scrollTrigger: {
         trigger: triggerRef.current,
         start: "top top",
-        end: () => `+=${horizontalRef.current.offsetWidth}`,
+        end: () => `+=${horizontalRef.current.offsetWidth * 1.5}`,
         pin: true,
-        scrub: 1,
+        scrub: 2,
         snap: {
           snapTo: 1 / (projectImages.length - 1),
-          duration: { min: 0.2, max: 0.3 },
-          delay: 0.1
+          duration: { min: 0.3, max: 0.5 },
+          delay: 0.2
         }, 
         invalidateOnRefresh: true
       }
@@ -194,15 +196,21 @@ const ProjectSection = () => {
           {projectImages.map((project) => (
             <div loading key={project.id} className="panel relative flex items-center justify-center">
               <div className="relative w-full h-full flex flex-col items-center justify-center p-4 sm:p8 md:p-12">
-                <img
-                className="project-image max-w-full max-h-full rounded-2xl object-cover"
-                  src={project.imageSrc}
-                  alt="Project-img"
-                />
-                <h2 className="project-title flex items-center gap-3 md:text-3xl text-sm md:font-bold text-black mt-6 z-50 text-nowrap hover:text-gray-400 transition-colors duration-300 cursor-pointer">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <img
+                    className="project-image max-w-full max-h-full rounded-2xl object-cover hover:opacity-80 transition-opacity duration-300"
+                    src={project.imageSrc}
+                    alt="Project-img"
+                  />
+                </a>
+                <h2 className="project-title flex items-center gap-3 md:text-3xl text-sm md:font-bold text-black mt-6 z-50 text-nowrap hover:text-gray-400 transition-colors duration-300">
                   {project.title} <SlShareAlt />
                 </h2>
-
                 </div>
               </div>
           
