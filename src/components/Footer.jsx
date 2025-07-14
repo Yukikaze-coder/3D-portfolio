@@ -8,20 +8,9 @@ const Footer = () => {
         <div className="flex justify-between items-center">
 
             {/* Logo and description */}
-            <button
-                className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-200 bg-clip-text text-transparent focus:outline-none"
-                onClick={() => {
-                    const home = document.getElementById('home');
-                    if (home) {
-                        home.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    } else {
-                        window.location.hash = '#home';
-                    }
-                }}
-                aria-label="Go to Home"
-            >
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-200 bg-clip-text text-transparent ">
                 Morandini Luigi
-            </button>
+            </h2>
 
             {/* Scroll links */}
             <div>
