@@ -37,16 +37,16 @@ const Header = () => {
             </div>
 
         <span className="text-xl font-bold bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent">
-            Morandini Luigi
+            モランディニ・ルイ－ジ
         </span>
           
         </motion.div>
 
         {/* Desktop Navigation */}
         <nav className="lg:flex hidden space-x-8">
-            {["Home", "About", "Projects", "Experience", "Contact"].map((item, index) => (
-                
-                <motion.a 
+            {["ホーム", "アバウト", "プロジェクト", "経験", "お問い合わせ"].map((item, index) => (
+
+                <motion.a
                 key={item}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -114,7 +114,7 @@ const Header = () => {
             damping: 15
          }}
          className="ml-4 px-4 py-2 rounded-xl bg-gradient-to-r from-gray-400 to-gray-100 text-violet-700 font-bold hover:from-violet-700 hover:to-purple-700 hover:text-white transition-all duration-500">
-            Hire Me
+            Contact
         </motion.button>
         </div>
 
@@ -141,7 +141,7 @@ const Header = () => {
     transition={{ duration: 0.5 }}
         className="md:hidden overflow-hidden bg-white dark:bg-gray-900 shadow-lg px-4 py-5 space-y-5">
             <nav className="flex flex-col space-y-3">
-                 {["Home", "About", "Projects", "Experience", "Contact"].map((item) => 
+                 {["ホーム", "アバウト", "プロジェクト", "経験", "お問い合わせ"].map((item) => 
                  ( 
                     <a onClick={toggleMenu} className="text-gray-300 font-medium py-2" key={item} href="#">
                         {item}
@@ -172,7 +172,7 @@ const Header = () => {
                     openContactForm()
                 }}
                 className="mt-4 block w-full px-4 py-2 rounded-lg bg-gradient-to-r from-violet-600 to-violet-400 font-bold">
-                    Contact Me
+                    お問い合わせ
                 </button>
             </div>
         </motion.div>
@@ -203,7 +203,7 @@ const Header = () => {
 
                       <div className="flex justify-between items-center mb-4">
                         <h1 className="text-2xl font-bold text-gray-300">
-                            Get In Touch
+                            お問い合わせ
                         </h1>
 
                         <button onClick={closeContactForm}>
@@ -215,12 +215,12 @@ const Header = () => {
                         <form>
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                                    Name
+                                    名前
                                 </label>
                                 <input
                                 type="text"
                                 id="name"
-                                placeholder="Your Name"
+                                placeholder="あなたの名前"
                                 className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700"
 
                                 />
@@ -233,7 +233,7 @@ const Header = () => {
                                 <input
                                 type="email"
                                 id="email"
-                                placeholder="Your Email"
+                                placeholder="あなたのメール"
                                 className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700"
 
                                 />
@@ -241,12 +241,12 @@ const Header = () => {
 
                             <div>
                                 <label htmlFor="messagee" className="block text-sm font-medium text-gray-300 mb-1">
-                                    Message
+                                    メッセージ
                                 </label>
                                 <textarea
                                 rows="4"
                                 id="message"
-                                placeholder="How can i help you?"
+                                placeholder="あなたのメッセージ"
                                 className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700"
 
                                 />
@@ -257,7 +257,7 @@ const Header = () => {
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                             className="w-full px-4 py-2 bg-gradient-to-r from-violet-600 to-violet-400 hover:from-violet-700 hover:to-purple-700 transition-all duration-300 rounded-lg shadow-md hover:shadow-lg hover:shadow-violet-600/50">
-                                Send Message
+                                メッセージを送信
                             </motion.button>
                         </form>
 

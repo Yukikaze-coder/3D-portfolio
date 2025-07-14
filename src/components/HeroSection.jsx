@@ -18,7 +18,7 @@ const HeroSection = () => {
                 duration: 0.8
             }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold z-10 mb-6">
-                Building Fast <br /> Reliable Results
+                迅速な構築 <br /> 信頼性の高い結果
             </motion.h1>
 
             <motion.p 
@@ -32,14 +32,14 @@ const HeroSection = () => {
                 duration: 0.8
             }}
             className="text-xl md:text-1xl lg:text-2xl text-purple-200 max-w-2xl">
-                I deliver robust, production-ready websites and web apps with speed and precision. Every project is backed by clean code, clear communication, and commitment to getting it done, on time, every time.
+                堅牢で本番環境対応のウェブサイトとウェブアプリを、迅速かつ正確にお届けします。すべてのプロジェクトは、クリーンなコード、明確なコミュニケーション、そして常に期限通りに完了するというコミットメントによって支えられています。
             </motion.p>
 
         </div>
 
         {/* Right section */}
         <Spline className="absolute xl:right-[-28%] right-0 top-[-20%] lg:top-0"
-        scene="https://prod.spline.design/5USK4H83H9B7vF5L/scene.splinecode" />
+        scene="https://prod.spline.design/eu8ydTm5qMXIyxbH/scene.splinecode" />
 
     </section>
   )
