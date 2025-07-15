@@ -167,7 +167,7 @@ const ContactSection = () => {
             {/* Initial text */}
             <p
                 ref={initialTextRef} 
-                className="text-black font-bold text-base sm:text-lg md:text-xl absolute inset-0 flex items-center text-center"   
+                className="text-black font-bold text-base sm:text-lg md:text-xl absolute inset-0 flex items-center justify-center text-center"   
             >
                 Scroll down
             </p>
@@ -178,12 +178,14 @@ const ContactSection = () => {
                 className="text-center relative flex flex-col items-center justify-center opacity-0"
             >
                 <h1 className="text-black md:w-[10rem] w-[20rem] lg:scale-[0.4] sm:scale-[0.25] scale-[0.07] md:font-bold text-sm sm:text-base leading-none mb-5">
-                    未来へ踏み出そう
+                    フルスタック開発者
                 </h1>
 
                 <p className="text-black lg:w-[40rem] w-[20rem] absolute sm:mt-3 mt-1 md:scale-[0.1] scale-[0.068]">
-                    フルスタック開発者であり、React、Tailwind CSS、および高度なUIアニメーション技術を使用して、モダンでレスポンシブなウェブインターフェースを構築することに特化しています。クリーンなコードと、際立つピクセルパーフェクトなデザインに焦点を当てています。
-                    Node.js、Express、PostgreSQLなどのバックエンド技術の実践経験があります。RESTful APIの構築、サーバーサイドロジックの処理、データベース管理に精通しています。
+                    私はフルスタック開発者として、React、TypeScript、Tailwind CSS、そして高度なUIアニメーション技術を活用し、モダンでレスポンシブなWebインターフェースを構築しています。
+                    また、UI/UXの細部にまで配慮しながら、ユーザーにとって直感的で心地よい操作感を実現することを常に意識しています。
+                    フロントエンドからバックエンドまで、一貫した品質とパフォーマンスの高い開発を追求しています。
+
                 </p>
 
                 <button

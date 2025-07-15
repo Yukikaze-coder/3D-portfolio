@@ -3,7 +3,7 @@ import { TbFileCv } from 'react-icons/tb';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-16 px-6 mt-40">
+    <footer className="bg-black text-white py-4 px-6 mt-10">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center">
 
