@@ -178,13 +178,15 @@ const ContactSection = () => {
                 className="text-center relative flex flex-col items-center justify-center opacity-0"
             >
                 <h1 className="text-black md:w-[10rem] w-[20rem] lg:scale-[0.4] sm:scale-[0.25] scale-[0.07] md:font-bold text-sm sm:text-base leading-none mb-5">
-                    フルスタック開発者
+                    フルスタック<br />エンジニア
                 </h1>
 
                 <p className="text-black lg:w-[40rem] w-[20rem] absolute sm:mt-3 mt-1 md:scale-[0.1] scale-[0.068]">
-                    私はフルスタック開発者として、React、TypeScript、Tailwind CSS、そして高度なUIアニメーション技術を活用し、モダンでレスポンシブなWebインターフェースを構築しています。
-                    また、UI/UXの細部にまで配慮しながら、ユーザーにとって直感的で心地よい操作感を実現することを常に意識しています。
-                    フロントエンドからバックエンドまで、一貫した品質とパフォーマンスの高い開発を追求しています。
+                    プログラミング言語への深い理解とスピーディーな第二言語の習得
+                    フロントエンドとサーバサイドの開発・ペアプログラミング、 TDD/BDDやXPを取り入れた効率的な開発も含む
+                    オープンソース、クラウド製品を活用した効率的な開発、運用・ CICDも含む
+                    ペルソナ策定からユーザーストーリー作成を通じたリーン開発
+                    アジャイル原則を用いたチーム推進力の向上
 
                 </p>
 

@@ -108,7 +108,7 @@ const AboutSection = () => {
 
         <div ref={ introRef } className="absolute lg:bottom-[-20rem] md:bottom-[-10rem] bottom-[-20rem] left-0 w-full flex md:flex-row flex-col justify-between lg:px-24 px-5 items-center opacity-0">
             <h3 className="text-sm md:text-2xl font-bold text-purple-200 z-50 lg:max-w-[45rem] max-w-[27rem] tracking-wider md:mt-20 sm:mt-[-40rem] mt-[-32rem]">
-                私は情熱的なウェブ開発者であり、高速で信頼性が高く、本番環境に対応したウェブサイトとウェブアプリケーションの開発に注力しています。私の得意分野は、クリーンなコード、明確なコミュニケーション、そして納期厳守です。クライアントのニーズを満たすだけでなく、期待を超える堅牢なソリューションを構築することにやりがいを感じています。
+                フルスタック開発者であり、React、Tailwind CSS、および高度なUIアニメーション技術を使用して、モダンでレスポンシブなウェブインターフェースを構築することに特化しています。クリーンなコードと、際立つピクセルパーフェクトなデザインに焦点を当てています。 Node.js、Express、PostgreSQLなどのバックエンド技術の実践経験があります。RESTful APIの構築、サーバーサイドロジックの処理、データベース管理に精通していま。
             </h3>
             <img className="lg:h-[40rem] md:h-[25rem] h-[20rem] mix-blend-lighten" src="images/person.png" alt="profile-img" />
         </div>
