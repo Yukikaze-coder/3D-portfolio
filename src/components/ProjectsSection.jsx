@@ -21,9 +21,9 @@ const ProjectSection = () => {
     },
     {
       id: 2,
-      title: "3D Gaming Website",
+      title: "Global Weather App",
       imageSrc: "/images/project-2.png",
-      url :"https://gaming-website-cqgx.onrender.com/"
+      url :"https://weather-2n2l.onrender.com/"
 
     },
     {
