@@ -14,32 +14,39 @@ const ProjectSection = () => {
   const projectImages = [
     {
       id: 1,
+      title: "しば胃腸こうもんクリニック",
+      imageSrc: "/images/project.png",
+      url: "https://shibaangelclinic.vercel.app/"
+
+    },
+    {
+      id: 2,
       title: "Meta Game Website",
       imageSrc: "/images/project-1.png",
       url: "https://gaming-50q0.onrender.com/"
 
     },
     {
-      id: 2,
+      id: 3,
       title: "Global Weather App",
       imageSrc: "/images/project-2.png",
       url :"https://weather-2n2l.onrender.com/"
 
     },
     {
-      id: 3,
+      id: 4,
       title: "English Portfolio",
       imageSrc: "/images/project-3.png",
       url: "https://morandini.online/"
     },
     {
-      id: 4,
+      id: 5,
       title: "Japan Events",
       imageSrc: "/images/project-4.png",
       url: "https://eventsjp.com/"
     },
     {
-      id: 5,
+      id: 6,
       title: "Game-Finder",
       imageSrc: "/images/project-5.png",
       url: "https://game-finder.online/"
